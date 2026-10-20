@@ -16,15 +16,19 @@ from .grid import Grid
 from .models import JumpDiffusionModel
 
 
-def jump_kernel(grid: Grid, model: JumpDiffusionModel, tol: float = 1e-15):
-    """Offsets j (in cells) and probabilities k_j of the discretized jump distribution."""
-    jmax = grid.n - 1
-    j = np.arange(-jmax, jmax + 1)
-    edges = (np.arange(-jmax, jmax + 2) - 0.5) * grid.dx
-    k = np.diff(model.jump_dist.cdf(edges))
+def discretized_jump_kernel(dist, dx: float, max_cells: int, tol: float = 1e-15):
+    """Offsets j (in cells, |j| <= max_cells) and probabilities k_j = P(rho in ((j-1/2)dx, (j+1/2)dx])."""
+    j = np.arange(-max_cells, max_cells + 1)
+    edges = (np.arange(-max_cells, max_cells + 2) - 0.5) * dx
+    k = np.diff(dist.cdf(edges))
     keep = np.nonzero(k > tol)[0]
     lo, hi = keep[0], keep[-1] + 1
     return j[lo:hi], k[lo:hi]
+
+
+def jump_kernel(grid: Grid, model: JumpDiffusionModel, tol: float = 1e-15):
+    """Offsets j (in cells) and probabilities k_j of the discretized jump distribution."""
+    return discretized_jump_kernel(model.jump_dist, grid.dx, grid.n - 1, tol)
 
 
 def jump_generator_matrix(grid: Grid, model: JumpDiffusionModel) -> np.ndarray:
