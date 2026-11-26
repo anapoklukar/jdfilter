@@ -1,4 +1,4 @@
-"""Shared machinery for the experiments of Section 9 (IDs as in NAVODILA_ZA_ANO.md).
+"""Shared machinery for the paper experiments (IDs as in experiments/paper/README.md).
 
 Every experiment uses observation paths under Q generated on the common fine grid
 EPS = 2^-13 from SeedSequence(SEED, spawn_key=(j,)) for path j, so path j is the same

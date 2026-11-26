@@ -1,6 +1,6 @@
 """Periodic cell-mass splitting filter used for the numerical section of the paper.
 
-Conventions (Section 9 of the manuscript and NAVODILA_ZA_ANO.md):
+Conventions (as in the numerical section of the manuscript):
   * grid: [-R, R) with J cells of width dx = 2R/J, centres x_i = -R + (i + 1/2) dx;
   * the state is a vector of cell masses w (density w_i/dx on cell i);
     the L2 norm of the reconstructed density is sqrt(sum w_i^2 / dx);

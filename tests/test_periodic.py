@@ -1,4 +1,4 @@
-"""U0 checks of the periodic cell-mass filter (NAVODILA_ZA_ANO.md, Section 7)."""
+"""U0 checks of the periodic cell-mass filter (operator, update, mass and analytic-density checks)."""
 from dataclasses import replace
 
 import numpy as np

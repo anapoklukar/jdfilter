@@ -1,8 +1,15 @@
-# Experiments of Section 9 (numerical experiments)
+# Numerical experiments of the paper
+
+Code for the numerical experiments of D. Rupnik Poklukar and A. Poklukar, *First-order time
+splitting for the Zakai equation with a jump-diffusion signal and Gaussian and Cox
+observations* (submitted to Advances in Computational Mathematics). Table 1, the
+sensitivity numbers in Section 4 and Fig. 1 are produced by `acm_table.py` from the T1, V1
+and D1 runs below; the remaining experiments are additional checks not reported in the
+paper.
 
 Implementation: `src/jdfilter/periodic.py` (periodic cell-mass grid, `grid_exp` and
 `practical` predictors, observation update with log-mass bookkeeping, observation paths
-under Q). Checks: `tests/test_periodic.py`. Experiment IDs follow `NAVODILA_ZA_ANO.md`.
+under Q). Checks: `tests/test_periodic.py`.
 
 | ID | Script | What it computes | Default size |
 |---|---|---|---|
@@ -23,7 +30,8 @@ for v in dx_half R6 R12 tol_1e-16; do .venv/bin/python experiments/paper/d1_sens
 wait
 .venv/bin/python experiments/paper/s1_space.py --K 256 & .venv/bin/python experiments/paper/v1_variable.py --K 256 & wait
 .venv/bin/python experiments/paper/report.py
-.venv/bin/python experiments/paper/latex_tables.py   # tables pasted into sections/09_numerics.tex
+.venv/bin/python experiments/paper/latex_tables.py
+.venv/bin/python experiments/paper/acm_table.py      # Table 1, sensitivity numbers, Fig. 1
 ```
 
 Each process uses one FFT thread (`JDF_FFT_WORKERS`, default 1), so independent runs can
@@ -39,11 +47,11 @@ Output in `results/paper/` (not in git):
   (1000 resamples of whole paths, the same resamples for all schemes and resolutions) can
   be recomputed from the `.npz` files without rerunning any filter.
 
-## Submitted manuscript (Advances in Computational Mathematics)
+## Table 1, sensitivity numbers and Fig. 1 of the paper
 
 Table 1 (8 rows: grid exponential, Lie and symmetric, three observation cases and model V),
-the reference/grid/domain sensitivity numbers and Fig. 1 are computed from the saved T1, V1
-and D1 runs, without rerunning any filter:
+the reference/grid/domain sensitivity numbers of Section 4 and Fig. 1 are computed from the
+saved T1, V1 and D1 runs, without rerunning any filter:
 
 ```sh
 .venv/bin/python experiments/paper/acm_table.py

@@ -1,4 +1,4 @@
-"""Tables and figures for Section 9 from the saved runs (no filter is rerun here).
+"""Tables and figures for all experiments from the saved runs (no filter is rerun here).
 Output: results/paper/tables/*.csv, results/paper/figures/*.pdf|png, results/paper/summary.json.
 
     .venv/bin/python experiments/paper/report.py

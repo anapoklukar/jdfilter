@@ -1,5 +1,5 @@
-"""LaTeX tables for Section 9, written from the CSV files of report.py.
-Output: results/paper/tables/*.tex (pasted into sections/09_numerics.tex).
+"""LaTeX tables for all experiments, written from the CSV files of report.py.
+Output: results/paper/tables/*.tex.
 
     .venv/bin/python experiments/paper/latex_tables.py
 """
