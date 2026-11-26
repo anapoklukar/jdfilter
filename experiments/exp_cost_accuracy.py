@@ -87,6 +87,7 @@ def main():
     fig.tight_layout()
     OUT.mkdir(exist_ok=True)
     fig.savefig(OUT / "cost_accuracy.png", dpi=150)
+    fig.savefig(OUT / "cost_accuracy.pdf")
 
 
 if __name__ == "__main__":

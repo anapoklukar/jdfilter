@@ -46,6 +46,7 @@ def main():
     fig.tight_layout()
     OUT.mkdir(exist_ok=True)
     fig.savefig(OUT / "2d_convergence_dt.png", dpi=150)
+    fig.savefig(OUT / "2d_convergence_dt.pdf")
 
 
 if __name__ == "__main__":

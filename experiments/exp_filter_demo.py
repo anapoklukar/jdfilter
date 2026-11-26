@@ -39,6 +39,7 @@ def main():
     fig.tight_layout()
     OUT.mkdir(exist_ok=True)
     fig.savefig(OUT / "filter_demo.png", dpi=150)
+    fig.savefig(OUT / "filter_demo.pdf")
     mse = lambda m: np.mean((m - path.x[1:]) ** 2)
     print(f"MSE splitting = {mse(grid_res.mean):.4f}, particle = {mse(pf_res.mean):.4f}")
 

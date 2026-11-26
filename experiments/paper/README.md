@@ -38,3 +38,16 @@ Output in `results/paper/` (not in git):
 * `tables/*.csv`, `figures/*.pdf|png`, `summary.json` from `report.py`. Bootstrap intervals
   (1000 resamples of whole paths, the same resamples for all schemes and resolutions) can
   be recomputed from the `.npz` files without rerunning any filter.
+
+## Submitted manuscript (Advances in Computational Mathematics)
+
+Table 1 (8 rows: grid exponential, Lie and symmetric, three observation cases and model V),
+the reference/grid/domain sensitivity numbers and Fig. 1 are computed from the saved T1, V1
+and D1 runs, without rerunning any filter:
+
+```sh
+.venv/bin/python experiments/paper/acm_table.py
+```
+
+Output in `results/paper/acm/`: `table.csv` (unrounded errors, slopes and bootstrap
+intervals), `table.tex` (table rows), `sensitivity.json`, `time_errors.pdf|png`.

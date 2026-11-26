@@ -71,6 +71,7 @@ def main():
     fig.tight_layout()
     OUT.mkdir(exist_ok=True)
     fig.savefig(OUT / "ignore_jumps.png", dpi=150)
+    fig.savefig(OUT / "ignore_jumps.pdf")
 
 
 if __name__ == "__main__":

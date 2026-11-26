@@ -53,6 +53,7 @@ def main():
     fig.tight_layout()
     OUT.mkdir(exist_ok=True)
     fig.savefig(OUT / "domain_size.png", dpi=150)
+    fig.savefig(OUT / "domain_size.pdf")
 
 
 if __name__ == "__main__":

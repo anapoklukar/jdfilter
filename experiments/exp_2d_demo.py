@@ -41,6 +41,7 @@ def main():
     fig.tight_layout()
     OUT.mkdir(exist_ok=True)
     fig.savefig(OUT / "2d_demo.png", dpi=150)
+    fig.savefig(OUT / "2d_demo.pdf")
     mse = lambda m: np.mean(np.sum((m - path.x[1:]) ** 2, axis=1))
     print(f"MSE splitting = {mse(g['mean']):.4f}, particle = {mse(pf['mean']):.4f}, "
           f"mean |splitting - particle| = {np.mean(np.abs(g['mean'] - pf['mean'])):.4f}")
